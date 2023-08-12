@@ -20,8 +20,9 @@ public class Main {
             System.out.println("1 - Cadastrar");
             System.out.println("2 - Buscar");
             System.out.println("3 - Editar");
-            System.out.println("4 - Remover");
-            System.out.println("5 - Sair");
+            System.out.println("4 - Listar");
+            System.out.println("5 - Remover");
+            System.out.println("6 - Sair");
             int option = scanner.nextInt();
 
             switch (option){
@@ -43,11 +44,15 @@ public class Main {
                     break;
 
                 case 4:
-                    removeClient();
 
                     break;
 
                 case 5:
+                    removeClient();
+
+                    break;
+
+                case 6:
                     exit = false;
 
                     break;
@@ -74,6 +79,8 @@ public class Main {
             if (clientt.equals(clientName)) {
                 position = i;
                 System.out.println(clientName + " foi encontrado");
+            }else{
+                System.out.println("Não foi possível encontrar o cliente.");
             }
         }
         return position;
@@ -91,6 +98,28 @@ public class Main {
         }
     }
 
+
+    private static void listClients(){
+        int cM =0;
+        int cF =0;
+
+        for(int i =0; i<clients.size(); i++){
+            if(clients.get(i).sex.equals("Masculino")){
+                cM++;
+
+            }else{
+                cF++;
+            }
+
+            System.out.println("Masculino: "+ cM+ " e Feminino: "+ cF);
+        }
+        for(int i =0; i<clients.size(); i++){
+            System.out.println("Nome: "+ clients.get(i).name +" Sexo: "+clients.get(i).sex +" Idade: "+ clients.get(i).age);
+        }
+
+
+
+    }
     private static void removeClient(){
         System.out.println("Qual nome que desejas remover?");
         String name = scanner.next();
