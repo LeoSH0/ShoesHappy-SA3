@@ -1,7 +1,8 @@
 package org.example;
 
+@Entity
 public class Person {
-
+    @Id
     private int id;
 
     public int getId() {
